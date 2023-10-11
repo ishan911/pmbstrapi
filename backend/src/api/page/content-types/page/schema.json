@@ -38,7 +38,9 @@
         "sections.pricing",
         "sections.lead-form",
         "sections.features",
-        "sections.heading"
+        "sections.heading",
+        "shared.slider",
+        "sections.slides"
       ],
       "pluginOptions": {
         "i18n": {

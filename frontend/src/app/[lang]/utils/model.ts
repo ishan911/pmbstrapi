@@ -20,6 +20,14 @@ export interface Picture {
 	data: Data;
 }
 
+export interface Slide {
+	id: string;
+	title: string;
+	description: string;
+	picture: Picture;
+	buttons: Button[];
+}
+
 export interface Button {
 	id: number;
 	url: string;

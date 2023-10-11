@@ -31,6 +31,14 @@ const populate = {
       plans: {
         populate: ["product_features"],
       },
+      slides: {
+        populate: {
+          fields: ["title", "description"],
+          picture: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+        },
+      },
       submitButton: {
         populate: true,
       },
