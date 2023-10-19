@@ -27,6 +27,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "downloads": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::download.download",
+      "mappedBy": "categories"
     }
   }
 }

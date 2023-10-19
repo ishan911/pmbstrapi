@@ -68,7 +68,7 @@ export default function Navbar({
     setMobileMenuOpen(false)
   }
   return (
-    <div className="p-4 dark:bg-black dark:text-gray-100">
+    <div className="p-4 ">
       <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
         <Logo src={logoUrl}>
           {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
@@ -88,7 +88,7 @@ export default function Navbar({
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Strapi</span>
-                {logoUrl && 
+                {logoUrl &&
                 <img
                   className="h-8 w-auto"
                   src={logoUrl}
@@ -119,8 +119,8 @@ export default function Navbar({
             </div>
           </Dialog.Panel>
           </Dialog>
-        <button 
-        className="p-4 lg:hidden" 
+        <button
+        className="p-4 lg:hidden"
         onClick={() => setMobileMenuOpen(true)} >
           <Bars3Icon className="h-7 w-7 text-gray-100" aria-hidden="true"/>
         </button>

@@ -33,9 +33,12 @@ const populate = {
       },
       slides: {
         populate: {
-          fields: ["title", "description"],
+          fields: ["title", "description", "buttons"],
           picture: {
             fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+          buttons: {
+            fields: ["url", "newTab", "text", "type"],
           },
         },
       },
