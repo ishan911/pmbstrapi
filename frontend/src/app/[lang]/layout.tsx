@@ -8,6 +8,29 @@ import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import {FALLBACK_SEO} from "@/app/[lang]/utils/constants";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@/app/assets/vendors/animate/animate.min.css";
+import "@/app/assets/vendors/animate/custom-animate.css";
+import "@/app/assets/vendors/fontawesome/css/all.min.css";
+import "@/app/assets/vendors/jarallax/jarallax.css";
+import "@/app/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css";
+import "@/app/assets/vendors/nouislider/nouislider.min.css";
+import "@/app/assets/vendors/nouislider/nouislider.pips.css";
+import "@/app/assets/vendors/odometer/odometer.min.css";
+import "@/app/assets/vendors/swiper/swiper.min.css";
+import "@/app/assets/vendors/agrion-icons/style.css";
+import "@/app/assets/vendors/tiny-slider/tiny-slider.min.css";
+import "@/app/assets/vendors/reey-font/stylesheet.css";
+import "@/app/assets/vendors/owl-carousel/owl.carousel.min.css";
+import "@/app/assets/vendors/owl-carousel/owl.theme.default.min.css";
+import "@/app/assets/vendors/bxslider/jquery.bxslider.css";
+import "@/app/assets/vendors/bootstrap-select/css/bootstrap-select.min.css";
+import "@/app/assets/vendors/vegas/vegas.min.css";
+import "@/app/assets/vendors/jquery-ui/jquery-ui.css";
+import "@/app/assets/vendors/timepicker/timePicker.css";
+import "@/app/assets/css/agrion.scss";
+import "@/app/assets/css/agrion-responsive.scss";
+
 
 
 async function getGlobal(lang: string): Promise<any> {
@@ -77,6 +100,7 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body>
+
         <Navbar
           links={navbar.links}
           logoUrl={navbarLogoUrl}

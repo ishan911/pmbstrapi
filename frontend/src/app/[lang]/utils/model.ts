@@ -23,6 +23,7 @@ export interface Picture {
 export interface Slide {
 	id: string;
 	title: string;
+	sub_title: string;
 	description: string;
 	picture: Picture;
 	buttons: Button[];

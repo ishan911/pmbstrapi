@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from "react";
+import HeaderBottomMenu from "@/app/[lang]/components/header/HeaderBottomMenu";
 
 interface NavLink {
   id: number;
@@ -54,6 +55,38 @@ function MobileNavLink({ url, text, closeMenu }: MobileNavLink ) {
   );
 }
 
+const HeaderTopMenu = () => {
+  return (
+      <div className="main-header__menu-box-top">
+        <ul className="list-unstyled main-header__contact-list">
+          <li>
+            <div className="icon">
+              <i className="icon-email"></i>
+            </div>
+            <div className="text">
+              <p><a href="mailto:support@pmb.gov.lk">support@pmb.gov.lk</a></p>
+            </div>
+          </li>
+          <li>
+            <div className="icon">
+              <i className="icon-pin"></i>
+            </div>
+            <div className="text">
+              <p>6th Floor, Sir Chittampalam A. Gardiner Mw,
+                Colombo 02</p>
+            </div>
+          </li>
+        </ul>
+        <div className="main-header__social">
+          <a href="#"><i className="fab fa-twitter"></i></a>
+          <a href="#"><i className="fab fa-facebook"></i></a>
+          <a href="#"><i className="fab fa-pinterest-p"></i></a>
+          <a href="#"><i className="fab fa-instagram"></i></a>
+        </div>
+      </div>
+  )
+}
+
 export default function Navbar({
   links,
   logoUrl,
@@ -67,6 +100,37 @@ export default function Navbar({
   const closeMenu = () => {
     setMobileMenuOpen(false)
   }
+
+  if(1 < 2){
+    return <header className="main-header">
+      <div className="main-header__wrapper">
+        <div className="main-header__wrapper-inner">
+          <div className="main-header__logo">
+            <Logo src={logoUrl}>
+              {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
+            </Logo>
+          </div>
+          <div className="main-header__menu-box">
+            <HeaderTopMenu/>
+            <HeaderBottomMenu/>
+          </div>
+          <div className="main-header__phone-contact-box">
+            <div className="main-header__phone-number">
+              <a href="tel:9200886823">+92 (0088) 6823</a>
+            </div>
+            <div className="main-header__call-box">
+              <div className="main-header__call-inner">
+                <div className="main-header__call-icon">
+                  <span className="fas fa-phone"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  }
+
   return (
     <div className="p-4 ">
       <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">

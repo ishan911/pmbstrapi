@@ -40,104 +40,69 @@ export default function Slides({ data }: SlidesProps) {
     };
 
     return (
-        <section className="dark:bg-black dark:text-gray-100 sliders">
-            <div className="relative bg-gray-800">
-                <div className={`w-full ${sliderStyles.slider}`}>
-                    <Zoom {...zoomInProperties}>
-                        {data.slides.map((slide: Slide, index: number) => {
-                            const imgUrl = getStrapiMedia(slide.picture.data.attributes.url);
-                            return <div key={index} className={`flex justify-center md:items-center items-start w-screen relative ${sliderStyles.slide}`}>
-                                <Image
-                                    src={imgUrl || ""}
-                                    alt={
-                                        slide.picture.data.attributes.alternativeText || "none provided"
-                                    }
-                                    className="w-screen object-cover block w-full h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 "
-                                    width={0}
-                                    height={600}
-                                    sizes="100vw"
-                                    style={{ width: '100%', height: '600px' }}
-                                />
-                                <HighlightedText
-                                    text={slide.title}
-                                    tag="h1"
-                                    className="absolute md:top-60 top-24 inset-x-1/4 text-center z-10 md:text-6xl text-4xl bold text-white"
-                                    color="dark:text-violet-400"
-                                />
-                                <HighlightedText
-                                    text={slide.description}
-                                    tag="p"
-                                    className="absolute md:top-80 top-40 inset-x-1/4 text-center z-10 md:text-2xl text-xl bold text-white"
-                                    color="dark:text-violet-400"
-                                />
-                                <div className="absolute md:top-90 top-70 flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                                    {slide.buttons.map((button: Button, index: number) => (
-                                        <Link
-                                            key={index}
-                                            href={button.url}
-                                            target={button.newTab ? "_blank" : "_self"}
-                                            className={renderButtonStyle(button.type)}
-                                        >
-                                            {button.text}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-                        })}
-                    </Zoom>
-                </div>
+        <section className="main-slider clearfix">
+            <div className="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
+                "effect": "fade",
+                "pagination": {
+                "el": "#main-slider-pagination",
+                "type": "bullets",
+                "clickable": true
+                },
+                "navigation": {
+                "nextEl": "#main-slider__swiper-button-next",
+                "prevEl": "#main-slider__swiper-button-prev"
+                },
+                "autoplay": {
+                "delay": 5000
+                }}'>
+            </div>
 
-
-
-
-
-                {/*<div id="default-carousel" className="relative w-full" data-carousel="slide">
-                    <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-
-                        {data.slides.map((slide: Slide, index: number) => {
-                            const imgUrl = getStrapiMedia(slide.picture.data.attributes.url);
-                            return <div key={index} className="hidden duration-700 ease-in-out" data-carousel-item>
-                                <Image
-                                    src={imgUrl || ""}
-                                    alt={
-                                        slide.picture.data.attributes.alternativeText || "none provided"
-                                    }
-                                    className="object-contain block w-full h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 "
-                                    width={600}
-                                    height={600}
-                                />
-                                <div className="absolute inset-0 bg-black opacity-50"></div>
-                                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                                    <HighlightedText
-                                        text={slide.title}
-                                        tag="h1"
-                                        className="text-5xl font-bold leading-none sm:text-6xl mb-8"
-                                        color="dark:text-violet-400"
-                                    />
-                                    <HighlightedText
-                                        text={slide.description}
-                                        tag="p"
-                                        className="tmt-6 mb-8 text-lg sm:mb-12"
-                                        color="dark:text-violet-400"
-                                    />
-                                    <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                                        {slide.buttons.map((button: Button, index: number) => (
-                                            <Link
-                                                key={index}
-                                                href={button.url}
-                                                target={button.newTab ? "_blank" : "_self"}
-                                                className={renderButtonStyle(button.type)}
-                                            >
-                                                {button.text}
-                                            </Link>
-                                        ))}
+            <div className="swiper-wrapper">
+                {
+                    data.slides.map((slide: Slide, index: number) => {
+                        const imgUrl = getStrapiMedia(slide.picture.data.attributes.url);
+                        const slideStyle = {
+                            backgroundImage: `url(${imgUrl})`
+                        }
+                        return (
+                            <div key={`swiper_slide_${index}`} className="swiper-slide">
+                                <div className="image-layer" style={slideStyle}></div>
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col-xl-12">
+                                            <div className="main-slider__content">
+                                                <p className="main-slider__sub-title">{slide.sub_title}</p>
+                                                <h2 className="main-slider__title">{slide.title}</h2>
+                                                <div className="main-slider__btn-box">
+                                                    {slide.buttons.map((button: Button, index: number) => (
+                                                        <Link
+                                                            key={index}
+                                                            href={button.url}
+                                                            target={button.newTab ? "_blank" : "_self"}
+                                                            className={renderButtonStyle(button.type)}
+                                                        >
+                                                            {button.text}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        })}
-                    </div>
-                </div>*/}
+                        )
+                    })
+                }
+            </div>
+            <div className="swiper-pagination" id="main-slider-pagination"></div>
+            <div className="main-slider__nav">
+                <div className="swiper-button-prev" id="main-slider__swiper-button-next">
+                    <i className="icon-right-arrow"></i>
+                </div>
+                <div className="swiper-button-next" id="main-slider__swiper-button-prev">
+                    <i className="icon-right-arrow"></i>
+                </div>
             </div>
         </section>
-    );
+    )
 }
