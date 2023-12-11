@@ -4,6 +4,9 @@ import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import Email from "../components/Email";
 import Slides from "@/app/[lang]/components/Slides";
+import ClickToAction from "@/app/[lang]/components/ClickToAction";
+import Parallax from "@/app/[lang]/components/Parallax";
+import About from "@/app/[lang]/components/About";
 
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
@@ -19,6 +22,12 @@ export function sectionRenderer(section: any, index: number) {
       return <Email key={index} data={section} />;
     case "sections.slides":
       return <Slides key={index} data={section}/>
+    case "sections.click-to-action":
+      return <ClickToAction key={index} data={section}/>
+    case "sections.parallax":
+      return <Parallax key={index} data={section}/>
+    case "sections.about":
+      return <About key={index} data={section}/>
     default:
       return null;
   }

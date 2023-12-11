@@ -11,8 +11,8 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
+    "tagline": {
+      "type": "string"
     },
     "testimonials": {
       "type": "component",

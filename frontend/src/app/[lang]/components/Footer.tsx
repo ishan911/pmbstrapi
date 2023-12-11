@@ -5,6 +5,9 @@ import Logo from "./Logo";
 import { CgWebsite } from "react-icons/cg";
 import { FaDiscord } from "react-icons/fa";
 import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
+import FooterBg from '@/app/assets/images/shapes/site-footer-shape-1.png'
+import FooterLogoImg from '@/app/assets/images/footer-logo.png'
+import Image from "next/image";
 
 interface FooterLink {
   id: number;
@@ -82,69 +85,136 @@ export default function Footer({
   socialLinks: Array<FooterLink>;
 }) {
 
+  const footerStyle = {
+    backgroundImage: `url(${FooterBg})`
+  }
+
   return (
-    <footer className="py-6 ">
-      <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
-        <div className="grid grid-cols-12">
-          <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
-            <Logo src={logoUrl}>
-              {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
-            </Logo>
-          </div>
-
-          <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Categories</p>
-            <ul>
-              {categoryLinks.map((link: CategoryLink) => (
-                <CategoryLink key={link.id} {...link} />
-              ))}
-            </ul>
-          </div>
-
-          <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Menu</p>
-            <ul>
-              {menuLinks.map((link: FooterLink) => (
-                <FooterLink key={link.id} {...link} />
-              ))}
-            </ul>
+      <footer className="site-footer">
+        <div className="site-footer__top">
+          <div className="container">
+            <div className="site-footer__top-inner">
+              <div className="site-footer-shape-1 float-bob-x" style={footerStyle}></div>
+              <div className="row">
+                <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                  <div className="footer-widget__column footer-widget__about">
+                    <div className="footer-widget__logo">
+                      <a href={'/'}>
+                        <Image src={FooterLogoImg} width={256} height={256} alt={''}/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                  <div className="footer-widget__column footer-widget__Explore">
+                    <div className="footer-widget__title-box">
+                      <h3 className="footer-widget__title">Explore</h3>
+                    </div>
+                    <ul className="footer-widget__Explore-list list-unstyled">
+                      {menuLinks.map((link: FooterLink) => (
+                          <FooterLink key={link.id} {...link} />
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                  <div className="footer-widget__column footer-widget__news">
+                    <div className="footer-widget__title-box">
+                      <h3 className="footer-widget__title">News</h3>
+                    </div>
+                    <ul className="footer-widget__news-list list-unstyled">
+                      <li>
+                        <div className="footer-widget__news-img">
+                          <img src="assets/images/resources/footer-widget-news-img-1.jpg" alt=""/>
+                        </div>
+                        <div className="footer-widget__news-content">
+                          <p className="footer-widget__news-date">20 Jul, 2022</p>
+                          <h5 className="footer-widget__news-sub-title"><a href="blog-details.html">A
+                            Organic Food
+                            Gives
+                            More Good Taste</a></h5>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="footer-widget__news-img">
+                          <img src="assets/images/resources/footer-widget-news-img-2.jpg" alt=""/>
+                        </div>
+                        <div className="footer-widget__news-content">
+                          <p className="footer-widget__news-date">20 Jul, 2022</p>
+                          <h5 className="footer-widget__news-sub-title"><a href="blog-details.html">A
+                            Organic Food
+                            Gives
+                            More Good Taste</a></h5>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                  <div className="footer-widget__column footer-widget__Contact">
+                    <div className="footer-widget__title-box">
+                      <h3 className="footer-widget__title">Contact</h3>
+                    </div>
+                    <ul className="footer-widget__Contact-list list-unstyled">
+                      <li>
+                        <div className="icon">
+                          <span className="fas fa-phone-square-alt"></span>
+                        </div>
+                        <div className="text">
+                          <p><a href="tel:94112335411/ 14 ">+94 112 335 411/ 14 </a></p>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="icon">
+                          <span className="fas fa-envelope"></span>
+                        </div>
+                        <div className="text">
+                          <p><a href="mailto:chairmanpmb@gmail.com">chairmanpmb@gmail.com</a></p>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="icon">
+                          <span className="icon-pin"></span>
+                        </div>
+                        <div className="text">
+                          <p>6th Floor, Sir Chittampalam A. Gardiner Mw,<br/>
+                            Colombo 02, Sri Lanka.</p>
+                        </div>
+                      </li>
+                    </ul>
+                    <form className="footer-widget__Contact-form">
+                      <div className="footer-widget__Contact-input-box">
+                        <input type="email" placeholder="Email Address" name="email"/>
+                          <button type="submit" className="footer-widget__Contact-btn"><i
+                              className="icon-right-arrow"></i></button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="grid justify-center pt-6 lg:justify-between">
-          <div className="flex">
-            <span className="mr-2">
-              ©{new Date().getFullYear()} All rights reserved
-            </span>
-            <ul className="flex">
-              {legalLinks.map((link: FooterLink) => (
-                <Link
-                  href={link.url}
-                  className="text-gray-400 hover:text-gray-300 mr-2"
-                  key={link.id}
-                >
-                  {link.text}
-                </Link>
-              ))}
-            </ul>
-          </div>
-          <div className="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
-            {socialLinks.map((link: FooterLink) => {
-              return (
-                <a
-                  key={link.id}
-                  rel="noopener noreferrer"
-                  href={link.url}
-                  title={link.text}
-                  target={link.newTab ? "_blank" : "_self"}
-                  className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-400 dark:text-gray-900"
-                >
-                  <RenderSocialIcon social={link.social} />
-                </a>
-              );
-            })}
+        <div className="site-footer__bottom">
+          <div className="container">
+            <div className="row">
+              <div className="col-xl-12">
+                <div className="site-footer__bottom-inner">
+                  <p className="site-footer__bottom-text">© Copyright 2023 by <a href="#">pmb.gov.lk</a></p>
+                  <div className="site-footer__social">
+                    <a href="#"><i className="fab fa-twitter"></i></a>
+                    <a href="#"><i className="fab fa-facebook"></i></a>
+                    <a href="#"><i className="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i className="fab fa-instagram"></i></a>
+                  </div>
+                  <div className="site-footer__bottom-scroll">
+                    <a href="#" data-target="html" className="scroll-to-target scroll-to-top"><i
+                        className="icon-up-arrow"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
-  );
+      </footer>)
 }

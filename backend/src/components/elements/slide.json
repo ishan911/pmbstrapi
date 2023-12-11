@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_elements_slides",
+  "info": {
+    "displayName": "slide",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button-link"
+    },
+    "sub_title": {
+      "type": "string"
+    }
+  }
+}

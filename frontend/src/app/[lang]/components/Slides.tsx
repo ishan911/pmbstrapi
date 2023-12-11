@@ -1,14 +1,15 @@
 "use client"
 
 import Link from "next/link";
-import Image from "next/image";
-import HighlightedText from "./HighlightedText";
 import { getStrapiMedia } from "../utils/api-helpers";
 import { renderButtonStyle } from "../utils/render-button-style";
 import {Button, Picture, Slide} from "@/app/[lang]/utils/model";
 import {ArrowLeftIcon, ArrowRightIcon} from "@heroicons/react/24/solid";
-import {Zoom} from "react-slideshow-image";
-import sliderStyles from "../../styles/slider.module.scss"
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
 
 interface SlidesProps {
     data: {
@@ -20,8 +21,6 @@ interface SlidesProps {
 }
 
 export default function Slides({ data }: SlidesProps) {
-    console.log('slides ', data)
-
     const zoomInProperties = {
         scale: 1,
         duration: 5000,
@@ -41,23 +40,11 @@ export default function Slides({ data }: SlidesProps) {
 
     return (
         <section className="main-slider clearfix">
-            <div className="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-                "effect": "fade",
-                "pagination": {
-                "el": "#main-slider-pagination",
-                "type": "bullets",
-                "clickable": true
-                },
-                "navigation": {
-                "nextEl": "#main-slider__swiper-button-next",
-                "prevEl": "#main-slider__swiper-button-prev"
-                },
-                "autoplay": {
-                "delay": 5000
-                }}'>
-            </div>
-
-            <div className="swiper-wrapper">
+            <Swiper
+                spaceBetween={50}
+                slidesPerView={1}
+                onSlideChange={() => console.log('slide change')}
+            >
                 {
                     data.slides.map((slide: Slide, index: number) => {
                         const imgUrl = getStrapiMedia(slide.picture.data.attributes.url);
@@ -65,7 +52,7 @@ export default function Slides({ data }: SlidesProps) {
                             backgroundImage: `url(${imgUrl})`
                         }
                         return (
-                            <div key={`swiper_slide_${index}`} className="swiper-slide">
+                            <SwiperSlide>
                                 <div className="image-layer" style={slideStyle}></div>
                                 <div className="container">
                                     <div className="row">
@@ -89,20 +76,11 @@ export default function Slides({ data }: SlidesProps) {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </SwiperSlide>
                         )
                     })
                 }
-            </div>
-            <div className="swiper-pagination" id="main-slider-pagination"></div>
-            <div className="main-slider__nav">
-                <div className="swiper-button-prev" id="main-slider__swiper-button-next">
-                    <i className="icon-right-arrow"></i>
-                </div>
-                <div className="swiper-button-next" id="main-slider__swiper-button-prev">
-                    <i className="icon-right-arrow"></i>
-                </div>
-            </div>
+            </Swiper>
         </section>
     )
 }

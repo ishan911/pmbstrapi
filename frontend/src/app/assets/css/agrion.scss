@@ -2839,7 +2839,7 @@ ul {
 .about-one {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 0 0 120px;
   z-index: 1;
 }
 
@@ -3022,7 +3022,7 @@ ul {
 }
 
 .about-one__img-two img {
-  width: auto;
+  //width: auto;
   border-radius: var(--agrion-bdr-radius);
 }
 

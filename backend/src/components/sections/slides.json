@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_slides",
+  "info": {
+    "displayName": "Slides",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "slides": {
+      "displayName": "slide",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.slide"
+    }
+  }
+}

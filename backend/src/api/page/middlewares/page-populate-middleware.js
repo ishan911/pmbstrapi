@@ -42,6 +42,25 @@ const populate = {
           },
         },
       },
+      click_to_actions: {
+        populate: {
+          fields: ["title", "icon", "background"],
+          background: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+          lead_bg: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+        },
+      },
+      link: {
+        populate: {
+          fields: ["url", "newTab", "text", "type"],
+        },
+      },
+      background: {
+        fields: ["url", "alternativeText", "caption", "width", "height"],
+      },
       submitButton: {
         populate: true,
       },
@@ -62,7 +81,7 @@ module.exports = (config, { strapi }) => {
       locale: ctx.query.locale,
     };
 
-    console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
+    // console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
 
     await next();
   };

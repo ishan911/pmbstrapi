@@ -40,7 +40,13 @@
         "sections.features",
         "sections.heading",
         "shared.slider",
-        "sections.slides"
+        "sections.slides",
+        "sections.click-to-action",
+        "sections.parallax",
+        "sections.about",
+        "sections.contact",
+        "sections.left-image-section",
+        "sections.stocks"
       ],
       "pluginOptions": {
         "i18n": {
