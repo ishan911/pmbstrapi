@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sections_stocks",
+  "info": {
+    "displayName": "stocks",
+    "icon": "database"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

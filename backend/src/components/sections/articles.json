@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_articles",
+  "info": {
+    "displayName": "Articles",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "tagline": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

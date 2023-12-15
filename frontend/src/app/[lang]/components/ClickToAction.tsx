@@ -1,11 +1,6 @@
 import {Button, Picture, Slide} from "@/app/[lang]/utils/model";
-import { Amatic_SC } from 'next/font/google'
 import {getStrapiMedia} from "@/app/[lang]/utils/api-helpers";
-
-const Amatic = Amatic_SC({
-    weight: '700',
-    subsets: ['latin'],
-})
+import {amaticFontClass} from "@/app/utils/GoogleFonts";
 
 interface ClickToActionProps {
     data: {
@@ -35,7 +30,7 @@ export default function ClickToAction({ data }: ClickToActionProps) {
                                 <div className="cta-one__icon">
                                     <span className={`icon-${data.Icon}`}></span>
                                 </div>
-                                <h3 className={`cta-one__title ${Amatic.className}`} dangerouslySetInnerHTML={{ __html: data.Title }}></h3>
+                                <h3 className={`cta-one__title ${amaticFontClass}`} dangerouslySetInnerHTML={{ __html: data.Title }}></h3>
                             </div>
                             {
                                 data.link && <div className="cta-one__right">

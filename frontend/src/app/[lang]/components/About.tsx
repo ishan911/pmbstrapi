@@ -1,13 +1,9 @@
-import {Amatic_SC} from "next/font/google";
 import AboutShape1 from "@/app/assets/images/shapes/about-one-shape-1.png"
 import AboutImage1 from "@/app/assets/images/resources/about-one-img-1.jpg"
 import AboutImage2 from "@/app/assets/images/resources/about-one-img-2.jpg"
 import Image from "next/image";
+import {amaticFontClass} from "@/app/utils/GoogleFonts";
 
-const Amatic = Amatic_SC({
-    weight: '700',
-    subsets: ['latin'],
-})
 interface AboutProps {
     data: {
         id: string;
@@ -29,7 +25,7 @@ export default function About({ data }: AboutProps) {
                         <div className="about-one__left">
                             <div className="section-title text-left">
                                 <span className="section-title__tagline"></span>
-                                <h2 className={`section-title__title ${Amatic.className}`}>{data.title}</h2>
+                                <h2 className={`section-title__title ${amaticFontClass}`}>{data.title}</h2>
                             </div>
                             <p className="about-one__text-2">{data.description}</p>
 

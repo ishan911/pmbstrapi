@@ -46,7 +46,10 @@
         "sections.about",
         "sections.contact",
         "sections.left-image-section",
-        "sections.stocks"
+        "sections.stocks",
+        "sections.services",
+        "sections.articles",
+        "sections.members"
       ],
       "pluginOptions": {
         "i18n": {

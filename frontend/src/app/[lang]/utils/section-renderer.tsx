@@ -7,6 +7,10 @@ import Slides from "@/app/[lang]/components/Slides";
 import ClickToAction from "@/app/[lang]/components/ClickToAction";
 import Parallax from "@/app/[lang]/components/Parallax";
 import About from "@/app/[lang]/components/About";
+import Services from "@/app/[lang]/components/Services";
+import Articles from "@/app/[lang]/components/Articles";
+import Stocks from "@/app/[lang]/components/Stocks";
+import Members from "@/app/[lang]/components/Members";
 
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
@@ -28,6 +32,14 @@ export function sectionRenderer(section: any, index: number) {
       return <Parallax key={index} data={section}/>
     case "sections.about":
       return <About key={index} data={section}/>
+    case "sections.services":
+      return <Services key={index} data={section}/>
+    case "sections.articles":
+      return <Articles key={index} data={section}/>
+    case "sections.stocks":
+      return <Stocks key={index}/>
+    case "sections.members":
+      return <Members key={index} data={section}/>
     default:
       return null;
   }

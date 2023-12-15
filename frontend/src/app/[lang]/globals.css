@@ -3,8 +3,15 @@
 @tailwind utilities;
 @import "react-slideshow-image/dist/styles.css";
 
+@layer base {
+
+}
+
 body {
   @apply dark:bg-white
+}
+img, video {
+  height: initial;
 }
 
 

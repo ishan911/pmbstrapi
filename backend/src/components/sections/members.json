@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_members",
+  "info": {
+    "displayName": "Members",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    }
+  }
+}

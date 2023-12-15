@@ -1,3 +1,9 @@
+interface MediaParams {
+    width?: number;
+    height?: number;
+    fit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside';
+}
+
 export function getStrapiURL(path = '') {
     return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${path}`;
 }
@@ -14,6 +20,20 @@ export function getStrapiMedia(url: string | null) {
 
     // Otherwise prepend the URL path with the Strapi URL
     return `${getStrapiURL()}${url}`;
+}
+
+export function getStrapiMediaScaled(url: string, params: MediaParams = {}): string {
+    const imageUrl = url.startsWith('/') ? process.env.NEXT_PUBLIC_STRAPI_API_URL + url : url;
+
+    if (params.width || params.height) {
+        return `${imageUrl}?${
+            params.width ? `w=${params.width}` : ''
+        }${params.width && params.height ? `&` : ''}${
+            params.height ? `h=${params.height}` : ''
+        }${params.fit ? `&fit=${params.fit}` : ''}`;
+    }
+
+    return imageUrl;
 }
 
 export function formatDate(dateString: string) {

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_elements_slide_pages",
+  "info": {
+    "displayName": "slide_page"
+  },
+  "options": {},
+  "attributes": {
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button-link"
+    }
+  }
+}

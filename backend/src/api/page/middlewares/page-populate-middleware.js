@@ -61,6 +61,14 @@ const populate = {
       background: {
         fields: ["url", "alternativeText", "caption", "width", "height"],
       },
+      services: {
+        populate: {
+          fields: ["title", "description", "icon", "image", "link"],
+          image: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+        },
+      },
       submitButton: {
         populate: true,
       },
@@ -80,9 +88,6 @@ module.exports = (config, { strapi }) => {
       filters: { slug: ctx.query.filters.slug },
       locale: ctx.query.locale,
     };
-
-    // console.log("page-populate-middleware.js: ctx.query = ", ctx.query);
-
     await next();
   };
 };

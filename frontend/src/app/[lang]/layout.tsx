@@ -100,27 +100,28 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body>
+        <div className={`page-wrapper`}>
+          <Navbar
+              links={navbar.links}
+              logoUrl={navbarLogoUrl}
+              logoText={navbar.navbarLogo.logoText}
+          />
 
-        <Navbar
-          links={navbar.links}
-          logoUrl={navbarLogoUrl}
-          logoText={navbar.navbarLogo.logoText}
-        />
+          <main className="min-h-screen">
+            {children}
+          </main>
 
-        <main className="min-h-screen">
-          {children}
-        </main>
+          {/*<Banner data={notificationBanner} />*/}
 
-        <Banner data={notificationBanner} />
-
-        <Footer
-          logoUrl={footerLogoUrl}
-          logoText={footer.footerLogo.logoText}
-          menuLinks={footer.menuLinks}
-          categoryLinks={footer.categories.data}
-          legalLinks={footer.legalLinks}
-          socialLinks={footer.socialLinks}
-        />
+          <Footer
+              logoUrl={footerLogoUrl}
+              logoText={footer.footerLogo.logoText}
+              menuLinks={footer.menuLinks}
+              categoryLinks={footer.categories.data}
+              legalLinks={footer.legalLinks}
+              socialLinks={footer.socialLinks}
+          />
+        </div>
       </body>
     </html>
   );
